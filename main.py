@@ -4,30 +4,25 @@
 # Подсказка: Имя функции можно получить с помощью func.__name__
 
 
-
-def get_name_func(name_func):
-    return name_func.__name__
-
-
 def write(names_func, **kwargs):
-    for name_func in names_func:
-        print(name_func.replace('_', ' ').capitalize())
-    print(kwargs.keys())
-
-
+    print(names_func.__name__.replace('_', ' ').capitalize())
+    for key in kwargs.keys():
+        print(key)
+    print('---')
 
 
 def open_browser():
-    return get_name_func(open_browser)
+    pass
 
 
 def go_to_companyname_homepage():
-    return get_name_func(go_to_companyname_homepage)
+    pass
 
 
 def find_registration_button_on_login_page():
-    return get_name_func(find_registration_button_on_login_page)
+    pass
 
 
-call_funcs = open_browser(), go_to_companyname_homepage(), find_registration_button_on_login_page()
-write(call_funcs)
+call_funcs = open_browser, go_to_companyname_homepage, find_registration_button_on_login_page
+for call_func in call_funcs:
+    write(call_func, arg1=4, arg2=5)
